@@ -104,22 +104,13 @@ const Dashboard: React.FC = () => {
             <tbody>
               {transactions.map((transaction, idx) => (
                 <tr key={`trow-${transaction.id}`}>
-                  <td key={`title-${transaction.id}`} className="title">
-                    {transaction.title}
-                  </td>
-                  <td
-                    key={`type-${transaction.id}`}
-                    className={transaction.type}
-                  >
+                  <td className="title">{transaction.title}</td>
+                  <td className={transaction.type}>
                     {transaction.type === 'outcome' && ' - '}
                     {transaction.formattedValue}
                   </td>
-                  <td key={`category-${transaction.id}`}>
-                    {transaction.category.title}
-                  </td>
-                  <td key={`date-${transaction.id}`}>
-                    {transaction.formattedDate}
-                  </td>
+                  <td>{transaction.category.title}</td>
+                  <td>{transaction.formattedDate}</td>
                 </tr>
               ))}
             </tbody>
